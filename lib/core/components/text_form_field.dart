@@ -16,6 +16,7 @@ class InteraTextField extends StatelessWidget {
   final bool autofocus;
   final bool enableSuggestions;
   final bool readOnly;
+  final bool obscure;
   final int? maxLines;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
@@ -42,6 +43,7 @@ class InteraTextField extends StatelessWidget {
     this.enableSuggestions = true,
     this.readOnly = false,
     this.maxLines = 1,
+    this.obscure = false,
     this.keyboardType,
     this.textInputAction,
     this.autovalidateMode,
@@ -102,6 +104,7 @@ class InteraTextField extends StatelessWidget {
       style: style,
       textInputAction: textInputAction,
       validator: validator,
+      obscureText: obscure,
     );
   }
 }
