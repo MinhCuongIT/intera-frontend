@@ -11,6 +11,8 @@ class AuthenticationDto {
   String get password => _password.value;
   set password(String value) => _password.value = value;
 
+  bool get isLogged => true;
+
   bool get validated => email.isNotEmpty && InteraUtils.isValidEmail(email) && password.isNotEmpty;
 }
 

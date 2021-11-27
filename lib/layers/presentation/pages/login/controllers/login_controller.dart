@@ -11,6 +11,7 @@ class LoginController extends InteraController {
   set password(String value) => dto.password = value;
 
   bool get validated => dto.validated;
+  bool get isLogged => dto.isLogged;
 
   Future<void> authenticate() async {
     loading = true;

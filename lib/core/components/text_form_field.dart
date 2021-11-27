@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../theme/intera_colors.dart';
 import '../theme/intera_font.dart';
@@ -73,18 +74,36 @@ class InteraTextField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: labelStyle ?? TextStyle(color: InteraColors.baseDark25, fontWeight: InteraFont.semiBold),
+        labelStyle: labelStyle ??
+            TextStyle(
+              color: InteraColors.baseDark25,
+              fontWeight: InteraFont.semiBold,
+              fontSize: ResponsiveWrapper.of(context).isSmallerThan(MOBILE) ? 12 : 15,
+            ),
         hintText: hint,
-        hintStyle: hintStyle ?? TextStyle(color: InteraColors.textGray, fontWeight: InteraFont.regular),
+        hintStyle: hintStyle ??
+            TextStyle(
+              color: InteraColors.textGray,
+              fontWeight: InteraFont.regular,
+              fontSize: ResponsiveWrapper.of(context).isSmallerThan(MOBILE) ? 12 : 15,
+            ),
         helperText: helper,
-        helperStyle: helperStyle ?? TextStyle(color: InteraColors.textGray, fontWeight: InteraFont.regular),
+        helperStyle: helperStyle ??
+            TextStyle(
+              color: InteraColors.textGray,
+              fontWeight: InteraFont.regular,
+              fontSize: ResponsiveWrapper.of(context).isSmallerThan(MOBILE) ? 10 : 15,
+            ),
         border: _border(),
         enabledBorder: _border(),
         focusedBorder: _border(),
         errorBorder: _border(color: InteraColors.error),
         focusedErrorBorder: _border(color: InteraColors.error),
         disabledBorder: _border(color: InteraColors.baseDark25),
-        contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+        contentPadding: EdgeInsets.symmetric(
+          vertical: ResponsiveWrapper.of(context).isSmallerThan(MOBILE) ? 15 : 20,
+          horizontal: ResponsiveWrapper.of(context).isSmallerThan(MOBILE) ? 10 : 12,
+        ),
         floatingLabelBehavior: floatingLabelBehavior,
         alignLabelWithHint: true,
         isDense: true,
