@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.intera.intera">
-   <application
-        android:label="intera"
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:label="Intera"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
