@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
-import 'viewModels/login_viewModel.dart';
+import 'controllers/login_controller.dart';
 
 class LoginIoC extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => LoginViewModel());
+    Get.lazyPut(() => LoginController());
   }
 }

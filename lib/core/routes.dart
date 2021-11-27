@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../layers/presentation/pages/pages.dart';
-import '../../layers/presentation/pages/ioc.dart';
+import '../layers/presentation/pages/pages.dart';
+import '../layers/presentation/pages/ioc.dart';
 
 class InteraRoutes {
   static const SPLASH = '/';

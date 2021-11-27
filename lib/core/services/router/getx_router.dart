@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 import 'router.dart';
-import '../../consts/routes.dart';
+import '../../routes.dart';
 
-class GetXRouter extends GetxService implements Router {
+class GetXInteraRouter extends GetxService implements InteraRouter {
   @override
   Future<T?>? to<T>(String route, {dynamic arguments}) => Get.toNamed<T>(route, arguments: arguments);
 
@@ -16,3 +16,5 @@ class GetXRouter extends GetxService implements Router {
   @override
   Future<T?>? toSettings<T>({String route = InteraRoutes.SETTINGS}) => to<T>(route);
 }
+
+InteraRouter get router => Get.find<InteraRouter>();

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import 'core/helpers/screen_breakpoints.dart';
 import 'core/theme/intera_theme.dart';
-import 'core/consts/routes.dart';
+import 'core/routes.dart';
 
 class InteraApp extends StatelessWidget {
   final String initialRoute;

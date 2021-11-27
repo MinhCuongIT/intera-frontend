@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intera/core/theme/intera_colors.dart';
-import 'package:intera/core/theme/intera_font.dart';
+
+import '../theme/intera_colors.dart';
+import '../theme/intera_font.dart';
 
 class InteraButton extends StatelessWidget {
   final String text;

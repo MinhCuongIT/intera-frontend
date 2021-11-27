@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
-import 'viewModels/splash_viewModel.dart';
+import 'controllers/splash_controller.dart';
 
 class SplashIoC extends Bindings {
   @override
-  void dependencies() {
-    Get.lazyPut(() => SplashViewModel());
+  Future<void> dependencies() async {
+    await Get.putAsync(() async => SplashController());
   }
 }
