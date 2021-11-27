@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../helpers/hex_color.dart';
 
 class InteraColors {
