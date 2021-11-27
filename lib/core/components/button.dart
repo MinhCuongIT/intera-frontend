@@ -11,6 +11,7 @@ class InteraButton extends StatelessWidget {
   final Size size;
   final double radius;
   final ButtonStyle? buttonStyle;
+  final bool loading;
   final void Function()? onPressed;
   final void Function()? onLongPress;
 
@@ -24,6 +25,7 @@ class InteraButton extends StatelessWidget {
     this.onLongPress,
     this.radius = 8,
     this.buttonStyle,
+    this.loading = false,
   });
 
   factory InteraButton.primary(
@@ -32,6 +34,7 @@ class InteraButton extends StatelessWidget {
     double radius = 8,
     void Function()? onPressed,
     void Function()? onLongPress,
+    bool loading = false,
   }) {
     return InteraButton(
       text,
@@ -41,6 +44,7 @@ class InteraButton extends StatelessWidget {
       size: size,
       backgroundColor: InteraColors.primary,
       foregroundColor: InteraColors.baseLight100,
+      loading: loading,
     );
   }
 
@@ -50,6 +54,7 @@ class InteraButton extends StatelessWidget {
     double radius = 8,
     void Function()? onPressed,
     void Function()? onLongPress,
+    bool loading = false,
   }) {
     return InteraButton(
       text,
@@ -59,13 +64,25 @@ class InteraButton extends StatelessWidget {
       size: size,
       backgroundColor: InteraColors.violet20,
       foregroundColor: InteraColors.primary,
+      loading: loading,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Text(text),
+      child: loading == false
+          ? Center(child: Text(text))
+          : Center(
+              child: SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: Colors.white,
+                  strokeWidth: 2.5,
+                ),
+              ),
+            ),
       onPressed: onPressed,
       onLongPress: onLongPress,
       style: buttonStyle ??
@@ -75,7 +92,7 @@ class InteraButton extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(radius)),
             )),
             textStyle: MaterialStateProperty.all<TextStyle>(textStyle),
-            minimumSize: MaterialStateProperty.all<Size>(size),
+            fixedSize: MaterialStateProperty.all<Size>(size),
             foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
               if (states.contains(MaterialState.disabled)) return InteraColors.baseDark25;
 

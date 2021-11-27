@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,6 +10,7 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leftIcon;
   final List<Widget>? rightIcons;
   final Color? backgroundColor;
+  final Color? foregroundColor;
   final SystemUiOverlayStyle? systemOverlayStyle;
   final double height;
   final double fontSize;
@@ -21,6 +23,7 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leftIcon,
     this.rightIcons,
     this.backgroundColor,
+    this.foregroundColor,
     this.systemOverlayStyle,
     this.height = 70,
     this.fontSize = 20,
@@ -28,18 +31,40 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.textStyle,
   }) : super(key: key);
 
+  factory InteraAppBar.white(
+    String title, {
+    double height = 70,
+    List<Widget>? rightIcons,
+    Widget? leftIcon,
+    SystemUiOverlayStyle? systemOverlayStyle,
+    Color? foregroundColor,
+  }) =>
+      InteraAppBar(
+        title: title,
+        backgroundColor: InteraColors.baseLight100,
+        height: height,
+        leftIcon: leftIcon,
+        rightIcons: rightIcons,
+        systemOverlayStyle: systemOverlayStyle,
+        foregroundColor: foregroundColor ?? InteraColors.baseDark100,
+      );
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: title != null
-          ? Text(
-              title!,
-              style: textStyle ??
-                  TextStyle(
-                    color: InteraColors.baseLight100,
-                    fontWeight: fontWeight,
-                    fontSize: fontSize,
-                  ),
+          ? FadeInDown(
+              from: 35,
+              duration: Duration(milliseconds: 500),
+              child: Text(
+                title!,
+                style: textStyle ??
+                    TextStyle(
+                      color: foregroundColor ?? InteraColors.baseLight100,
+                      fontWeight: fontWeight,
+                      fontSize: fontSize,
+                    ),
+              ),
             )
           : null,
       toolbarHeight: height,
@@ -52,5 +77,5 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(70);
+  Size get preferredSize => Size.fromHeight(height);
 }
