@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intera/core/theme/intera_font.dart';
 
+import 'intera_font.dart';
 import 'intera_colors.dart';
 
 class InteraTheme {
