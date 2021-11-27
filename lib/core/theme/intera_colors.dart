@@ -5,6 +5,7 @@ import '../helpers/hex_color.dart';
 class InteraColors {
   static final Color background = HexColor("F5F5F5");
   
+  static final Color baseDark10 = HexColor("C5C5C5");
   static final Color baseDark25 = HexColor("7A7E80");
   static final Color baseDark50 = HexColor("464A4D");
   static final Color baseDark75 = HexColor("161719");

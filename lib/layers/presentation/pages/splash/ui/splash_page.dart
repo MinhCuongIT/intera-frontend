@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intera/core/components/button.dart';
 
 import '../../../../../core/components/app_bar.dart';
 
@@ -13,7 +14,12 @@ class SplashPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          children: [],
+          children: [
+            InteraButton.primary(
+              'teste',
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );
