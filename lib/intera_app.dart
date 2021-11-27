@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:get/get.dart';
 
+import 'core/helpers/screen_breakpoints.dart';
 import 'core/theme/intera_theme.dart';
 import 'core/consts/routes.dart';
 
@@ -30,12 +31,7 @@ class InteraApp extends StatelessWidget {
             child: child,
           ),
         ),
-        breakpoints: const [
-          ResponsiveBreakpoint.resize(350, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(600, name: TABLET),
-          ResponsiveBreakpoint.resize(800, name: DESKTOP),
-          ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
-        ],
+        breakpoints: ScreenBreakpoints.breakpoints,
       ),
     );
   }
