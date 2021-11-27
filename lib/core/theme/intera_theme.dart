@@ -7,17 +7,23 @@ class InteraTheme {
   InteraTheme._();
 
   static final ThemeData _base = ThemeData(
+    brightness: Brightness.light,
+    primaryColor: InteraColors.primary,
+    primaryColorDark: InteraColors.primaryDark,
+    primaryColorLight: InteraColors.primaryLight,
+    backgroundColor: InteraColors.background,
+    splashColor: InteraColors.primary,
+    hoverColor: Colors.transparent,
+    scaffoldBackgroundColor: InteraColors.background,
+    cardColor: Colors.white,
+    iconTheme: IconThemeData(),
+    cardTheme: CardTheme(color: Colors.white),
     appBarTheme: AppBarTheme(
       actionsIconTheme: IconThemeData(),
       iconTheme: IconThemeData(),
       color: InteraColors.primary,
       elevation: 0,
     ),
-    primaryColor: InteraColors.primary,
-    brightness: Brightness.light,
-    primaryColorDark: InteraColors.primaryDark,
-    primaryColorLight: InteraColors.primaryLight,
-    backgroundColor: InteraColors.background,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: InteraColors.primary,
       elevation: 0,
@@ -30,14 +36,15 @@ class InteraTheme {
       disabledElevation: 0,
       highlightElevation: 0,
     ),
-    splashColor: InteraColors.primary,
-    hoverColor: Colors.transparent,
-    scaffoldBackgroundColor: InteraColors.background,
-    cardColor: Colors.white,
-    cardTheme: CardTheme(
-      color: Colors.white,
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: InteraColors.background,
+      elevation: 0,
     ),
-    iconTheme: IconThemeData(),
+    buttonTheme: ButtonThemeData(),
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      primary: InteraColors.primary,
+      secondary: InteraColors.secondary,
+    ),
     textTheme: TextTheme(
       headline1: TextStyle(
         fontFamily: 'Inter',
@@ -130,15 +137,6 @@ class InteraTheme {
         letterSpacing: 1.5,
         decoration: TextDecoration.none,
       ),
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: InteraColors.background,
-      elevation: 0,
-    ),
-    buttonTheme: ButtonThemeData(),
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: InteraColors.primary,
-      secondary: InteraColors.secondary,
     ),
   );
 

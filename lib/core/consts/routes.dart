@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../layers/presentation/pages/login/login_ioc.dart';
-import '../../layers/presentation/pages/login/ui/login_page.dart';
+import '../../layers/presentation/pages/pages.dart';
+import '../../layers/presentation/pages/ioc.dart';
 
 class InteraRoutes {
   static const SPLASH = '/';
@@ -16,6 +16,11 @@ class InteraRoutes {
           name: LOGIN,
           page: () => LoginPage(),
           binding: LoginIoC(),
+        ),
+        GetPage(
+          name: SPLASH,
+          page: () => SplashPage(),
+          binding: SplashIoC(),
         ),
       ];
 }
