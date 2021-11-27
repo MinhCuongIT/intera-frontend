@@ -16,7 +16,7 @@ class InteraApp extends StatelessWidget {
       title: 'Intera',
       debugShowCheckedModeBanner: false,
       initialRoute: initialRoute,
-      getPages: Routes.routes,
+      getPages: InteraRoutes.routes,
       defaultTransition: Transition.cupertino,
       theme: InteraTheme.light,
       darkTheme: InteraTheme.dark,

@@ -8,11 +8,11 @@ class GetXRouter extends GetxService implements Router {
   Future<T?>? to<T>(String route, {dynamic arguments}) => Get.toNamed<T>(route, arguments: arguments);
 
   @override
-  Future<T?>? toLogin<T>({String route = Routes.LOGIN}) => to<T>(route);
+  Future<T?>? toLogin<T>({String route = InteraRoutes.LOGIN}) => to<T>(route);
 
   @override
-  Future<T?>? toHome<T>({String route = Routes.HOME}) => to<T>(route);
+  Future<T?>? toHome<T>({String route = InteraRoutes.HOME}) => to<T>(route);
 
   @override
-  Future<T?>? toSettings<T>({String route = Routes.SETTINGS}) => to<T>(route);
+  Future<T?>? toSettings<T>({String route = InteraRoutes.SETTINGS}) => to<T>(route);
 }

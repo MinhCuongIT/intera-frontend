@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../layers/presentation/pages/login/login_ioc.dart';
 import '../../layers/presentation/pages/login/ui/login_page.dart';
 
-class Routes {
+class InteraRoutes {
   static const SPLASH = '/';
   static const HOME = '/home';
   static const LOGIN = '/login';

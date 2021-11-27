@@ -7,5 +7,5 @@ import 'core/consts/routes.dart';
 void main() async {
   await Initializer.init();
 
-  runApp(InteraApp(initialRoute: Routes.initialRoute));
+  runApp(InteraApp(initialRoute: InteraRoutes.initialRoute));
 }
