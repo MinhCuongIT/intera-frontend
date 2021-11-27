@@ -52,7 +52,9 @@ class InteraTextField extends StatelessWidget {
     this.onFieldSubmitted,
     this.validator,
     this.floatingLabelBehavior = FloatingLabelBehavior.always,
-  }) : super(key: key);
+  })  : assert(initialValue == null || controller == null),
+        assert(maxLines == null || maxLines > 0),
+        super(key: key);
 
   InputBorder _border({
     Color? color,
