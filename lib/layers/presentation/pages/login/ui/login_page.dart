@@ -14,13 +14,14 @@ import '../../../../../core/helpers/intera_utils.dart';
 
 class LoginPage extends InteraPage<LoginController> {
   final _formKey = GlobalKey<FormState>();
+  final bool isLogged = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: InteraColors.baseLight100,
-      appBar: InteraAppBar(
-        title: 'Login',
+      appBar: InteraAppBar.white(
+        'Login',
         height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 60 : 70,
         fontSize: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 18 : 20,
       ),
@@ -38,7 +39,7 @@ class LoginPage extends InteraPage<LoginController> {
               key: _formKey,
               child: Column(
                 children: [
-                  if (controller.isLogged == false) ...{
+                  if (isLogged == false) ...{
                     FadeInUp(
                       from: 20,
                       duration: Duration(milliseconds: 500),
@@ -155,6 +156,19 @@ class LoginPage extends InteraPage<LoginController> {
                           controller.authenticate();
                         }
                       },
+                      loading: loading,
+                    ),
+                  ),
+                  SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 20 : 40),
+                  FadeInUp(
+                    from: 20,
+                    duration: Duration(milliseconds: 500),
+                    delay: Duration(milliseconds: 600),
+                    child: InteraButton(
+                      'Esqueceu a senha?',
+                      backgroundColor: Colors.transparent,
+                      foregroundColor: InteraColors.primary,
+                      onPressed: () {},
                       loading: loading,
                     ),
                   ),

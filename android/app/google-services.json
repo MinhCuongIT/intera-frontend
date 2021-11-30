@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "952221107262",
+    "project_id": "intera-49c4d",
+    "storage_bucket": "intera-49c4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952221107262:android:25011d860e9753cecf3d6f",
+        "android_client_info": {
+          "package_name": "br.com.intera.intera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952221107262-496b48ff4hcrk6b26me1aqjtb4rb9eru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.intera.intera",
+            "certificate_hash": "7a28888b19540485158f55fe53879a86101770ae"
+          }
+        },
+        {
+          "client_id": "952221107262-cpq3trcjcmgm1d1sborg603qs0vlgar1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6txt6M64h0ELoI8OVDgqxfV9gXPE8KeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952221107262-cpq3trcjcmgm1d1sborg603qs0vlgar1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

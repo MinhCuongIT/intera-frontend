@@ -1,25 +1,38 @@
-import '../helpers/authentication_dto.dart';
+import 'package:flutter/services.dart';
+import 'package:intera/core/helpers/intera_utils.dart';
+import 'package:intera/layers/domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
+
+import '../helpers/authentication_helper.dart';
 import '../../../../../core/helpers/controller.dart';
 
 class LoginController extends InteraController {
-  final AuthenticationDto dto = AuthenticationDto();
+  LoginController(this._authenticateWithEmailAndPassword);
 
-  String get email => dto.email;
-  set email(String value) => dto.email = value;
+  final AuthenticationHelper _authHelper = AuthenticationHelper();
+  final AuthenticateWithEmailAndPasswordUseCase _authenticateWithEmailAndPassword;
 
-  String get password => dto.password;
-  set password(String value) => dto.password = value;
+  String get email => _authHelper.email;
+  String get password => _authHelper.password;
+  bool get validated => _authHelper.validated;
 
-  bool get validated => dto.validated;
-  bool get isLogged => dto.isLogged;
+  set email(String value) => _authHelper.email = value;
+  set password(String value) => _authHelper.password = value;
 
   Future<void> authenticate() async {
-    loading = true;
+    if (loading == true) return;
 
-    await Future.delayed(Duration(seconds: 4));
+    try {
+      await InteraUtils.hideKeyboard();
 
-    print('$email|$password');
+      loading = true;
 
-    loading = false;
+      if (validated) {
+        var user = await _authenticateWithEmailAndPassword(_authHelper.toCredentialsEntity());
+      }
+    } catch (e) {
+      print('Tratar exceção');
+    } finally {
+      loading = false;
+    }
   }
 }

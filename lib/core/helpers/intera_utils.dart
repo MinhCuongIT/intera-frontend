@@ -1,4 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/services.dart';
 
 class InteraUtils {
   InteraUtils._();
@@ -12,4 +13,6 @@ class InteraUtils {
 
   static String generateCPF({bool useFormat = false}) => UtilBrasilFields.gerarCPF(useFormat: useFormat);
   static String generateCNPJ({bool useFormat = false}) => UtilBrasilFields.gerarCNPJ(useFormat: useFormat);
+
+  static Future<void> hideKeyboard() async => await SystemChannels.textInput.invokeMethod('TextInput.hide');
 }

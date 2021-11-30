@@ -34,6 +34,7 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
   factory InteraAppBar.white(
     String title, {
     double height = 70,
+    double fontSize = 20,
     List<Widget>? rightIcons,
     Widget? leftIcon,
     SystemUiOverlayStyle? systemOverlayStyle,
@@ -47,6 +48,7 @@ class InteraAppBar extends StatelessWidget implements PreferredSizeWidget {
         rightIcons: rightIcons,
         systemOverlayStyle: systemOverlayStyle,
         foregroundColor: foregroundColor ?? InteraColors.baseDark100,
+        fontSize: fontSize,
       );
 
   @override

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +13,8 @@ class Initializer {
       WidgetsFlutterBinding.ensureInitialized();
 
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
+      FirebaseApp firebaseApp = await Firebase.initializeApp();
 
       insertGlobalServices();
     } catch (e) {
