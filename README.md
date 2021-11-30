@@ -14,7 +14,7 @@ Quer contribuir com o projeto? [Confira o passo a passo](./CONTRIBUTING.md)
 Quer ver o que está por vir? [Acompanhe aqui](https://github.com/bernardoveras/intera-frontend/projects)
 
 - Curta e compartilhe o projeto :rocket:
-- [![paypal.me/bernardoveras](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/bernardoveras) - Você pode fazer doações via Paypal. Me ajuda a comprar um ~~café~~ :
+- [![paypal.me/bernardoveras](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/bernardoveras) - Você pode fazer doações via Paypal. Me ajuda a comprar um ~~café~~
 
 ## Versionamento
 
