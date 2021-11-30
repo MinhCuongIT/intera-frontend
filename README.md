@@ -1,8 +1,9 @@
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/bernardoveras/intera-frontend/blob/master/LICENSE)
+# Intera
+> Divida suas contas com seus amigos na palma da mão!
 
-<p align="center">
-  <img alt="Cover" src=".github/assets/cover.png" />
-</p>
+![](.github/assets/cover.png)
+
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/bernardoveras/intera-frontend/blob/master/LICENSE)
 
 ## :sparkling_heart: Contribua!
 
