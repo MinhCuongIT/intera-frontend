@@ -1,10 +1,11 @@
 import 'package:faker/faker.dart';
-import 'package:intera/core/helpers/intera_utils.dart';
 import 'package:test/test.dart';
 
-void main(){
+import 'package:intera/core/helpers/intera_utils.dart';
+
+void main() {
   String stringToValidate = '';
-  
+
   test('Should return true if the email is correct', () {
     stringToValidate = faker.internet.email();
 
@@ -28,14 +29,13 @@ void main(){
   });
 
   test('Should return false if the CPF is incorrect', () {
-      stringToValidate = '000.2000.000-200';
+    stringToValidate = '000.2000.000-200';
 
     expect(InteraUtils.isValidCPF(stringToValidate), false);
 
     stringToValidate = 'sda.dsa.asd-ds';
 
     expect(InteraUtils.isValidCPF(stringToValidate), false);
-
 
     stringToValidate = 'sdewrfgvcxd';
 
@@ -53,14 +53,13 @@ void main(){
   });
 
   test('Should return false if the CNPJ is incorrect', () {
-      stringToValidate = '000.2000.000-200';
+    stringToValidate = '000.2000.000-200';
 
     expect(InteraUtils.isValidCNPJ(stringToValidate), false);
 
     stringToValidate = 'sda.dsa.asd-ds';
 
     expect(InteraUtils.isValidCNPJ(stringToValidate), false);
-
 
     stringToValidate = 'sdewrfgvcxd';
 

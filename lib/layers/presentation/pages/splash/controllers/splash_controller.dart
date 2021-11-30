@@ -1,5 +1,4 @@
-import 'package:intera/core/core_services.dart';
-
+import '../../../../../core/core_services.dart';
 import '../../../../../core/helpers/controller.dart';
 
 class SplashController extends InteraController {

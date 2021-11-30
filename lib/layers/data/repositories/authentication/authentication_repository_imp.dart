@@ -1,4 +1,4 @@
-import 'package:intera/layers/data/datasources/authentication/authentication_datasource.dart';
+import '../../datasources/authentication/authentication_datasource.dart';
 import '../../dto/user_dto.dart';
 import '../../../domain/entities/CredentialsEntity.dart';
 import '../../../domain/repositories/authentication/authentication_repository.dart';

@@ -1,8 +1,6 @@
-import 'package:flutter/services.dart';
-import 'package:intera/core/helpers/intera_utils.dart';
-import 'package:intera/layers/domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
-
 import '../helpers/authentication_helper.dart';
+import '../../../../../core/helpers/intera_utils.dart';
+import '../../../../domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
 import '../../../../../core/helpers/controller.dart';
 
 class LoginController extends InteraController {

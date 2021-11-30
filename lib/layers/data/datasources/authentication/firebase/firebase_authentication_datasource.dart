@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:intera/core/services/local_storage/local_storage_service.dart';
 
 import '../../../dto/user_dto.dart';
-import '../../../../domain/entities/CredentialsEntity.dart';
 import '../authentication_datasource.dart';
+import '../../../../domain/entities/CredentialsEntity.dart';
+import '../../../../../core/services/local_storage/local_storage_service.dart';
 
 class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
   FirebaseAuthenticationDatasource(this._localStorageService);
