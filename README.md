@@ -21,7 +21,7 @@ Quer ver o que está por vir? [Acompanhe aqui](https://github.com/bernardoveras/
 Esse projeto não possui um sistema de versionamento.
 
 ## Histórico
-Da uma olhada na aba [Releases](https://github.com/bernardoveras/intera-frontend/releases) pra acompanhar as alterações feitas no projeto.
+Dê uma olhada na aba [Releases](https://github.com/bernardoveras/intera-frontend/releases) pra acompanhar as alterações feitas no projeto.
 
 ## Licença do Projeto
 [MIT License](./LICENSE) © [Bernardo Veras](https://github.com/bernardoveras)
