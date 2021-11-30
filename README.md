@@ -1,6 +1,8 @@
 # Intera
 > Divida suas contas com seus amigos na palma da mão!
 
+![Design do App](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
+
 ![](.github/assets/cover.png)
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/bernardoveras/intera-frontend/blob/master/LICENSE)
@@ -13,7 +15,6 @@ Quer ver o que está por vir? [Acompanhe aqui](https://github.com/bernardoveras/
 
 - Curta e compartilhe o projeto :rocket:
 - [![paypal.me/bernardoveras](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/bernardoveras) - Você pode fazer doações via Paypal. Me ajuda a comprar um ~~coffee~~
-
 
 ## Versionamento
 
