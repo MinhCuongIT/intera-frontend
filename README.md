@@ -3,7 +3,6 @@
 
 ![](.github/assets/cover.png)
 
-
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/bernardoveras/intera-frontend/blob/master/LICENSE)
 
 #### Quer visualizar o design projeto? [Confira no Figma](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
