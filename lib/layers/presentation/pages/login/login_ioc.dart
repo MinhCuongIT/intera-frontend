@@ -11,7 +11,7 @@ import 'controllers/login_controller.dart';
 class LoginIoC extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AuthenticationDatasource>(() => FirebaseAuthenticationDatasource());
+    Get.lazyPut<AuthenticationDatasource>(() => FirebaseAuthenticationDatasource(Get.find()));
     Get.lazyPut<AuthenticationRepository>(() => AuthenticationRepositoryImp(Get.find()));
     Get.lazyPut<AuthenticateWithEmailAndPasswordUseCase>(() => AuthenticateWithEmailAndPasswordUseCaseImp(Get.find()));
 

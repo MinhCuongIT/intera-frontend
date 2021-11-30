@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:intera/core/services/local_storage/local_storage_service.dart';
 
+import 'services/local_storage/secure_local_storage_service.dart';
 import 'services/router/router.dart';
 import 'services/router/getx_router.dart';
 
@@ -25,5 +27,6 @@ class Initializer {
 
   static void insertGlobalServices() {
     Get.lazyPut<InteraRouter>(() => GetXInteraRouter());
+    Get.lazyPut<LocalStorageService>(() => SecureLocalStorageService());
   }
 }

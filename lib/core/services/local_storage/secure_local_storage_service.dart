@@ -1,8 +1,9 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get/get.dart';
 
 import 'local_storage_service.dart';
 
-class SecureLocalStorageService implements LocalStorageService {
+class SecureLocalStorageService extends GetxService implements LocalStorageService {
   final FlutterSecureStorage _secureStorage = FlutterSecureStorage();
 
   @override
