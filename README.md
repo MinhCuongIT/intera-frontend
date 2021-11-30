@@ -1,5 +1,5 @@
 # Intera
-> Divida suas contas com seus amigos na palma da mão!
+> :sparkling_heart: Divida suas contas com seus amigos na palma da mão com o app Intera!
 
 ![](.github/assets/cover.png)
 
