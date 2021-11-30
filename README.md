@@ -1,9 +1,9 @@
 # Intera
 > Divida suas contas com seus amigos na palma da mão!
 
-Quer visualizar o design projeto? [Confira no Figma](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
-
 ![](.github/assets/cover.png)
+
+Quer visualizar o design projeto? [Confira no Figma](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/bernardoveras/intera-frontend/blob/master/LICENSE)
 
