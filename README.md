@@ -1,7 +1,7 @@
 # Intera
 > Divida suas contas com seus amigos na palma da mão!
 
-[Design do App](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
+Quer visualizar o design projeto? [Confira no Figma](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
 
 ![](.github/assets/cover.png)
 
