@@ -1,5 +1,5 @@
 # Intera
-> :money_with_wings: Divida suas contas com seus amigos na palma da mão com o app Intera!
+> :money_with_wings: Divida suas contas com seus amigos na palma da mão!
 
 ![](.github/assets/cover.png)
 
