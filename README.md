@@ -7,7 +7,7 @@
 
 #### Quer visualizar o design projeto? [Confira no Figma](https://www.figma.com/file/qXEWQvI4CEx1MXUkyu6aDB/Intera-Mobile)
 
-## :sparkling_heart: Contribua!
+## :sparkling_heart: Contribua
 
 Quer contribuir com o projeto? [Confira o passo a passo](./CONTRIBUTING.md)
 
