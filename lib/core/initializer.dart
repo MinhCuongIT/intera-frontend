@@ -16,7 +16,7 @@ class Initializer {
 
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
-      FirebaseApp firebaseApp = await Firebase.initializeApp();
+      await Firebase.initializeApp();
 
       insertGlobalServices();
     } catch (e) {

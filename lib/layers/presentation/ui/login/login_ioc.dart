@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'controllers/login_controller.dart';
+import '../../controllers/login/login_controller.dart';
 import '../../../data/datasources/authentication/authentication_datasource.dart';
 import '../../../data/datasources/authentication/firebase/firebase_authentication_datasource.dart';
 import '../../../data/repositories/authentication/authentication_repository_imp.dart';

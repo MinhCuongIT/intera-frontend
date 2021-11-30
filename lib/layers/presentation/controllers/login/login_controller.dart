@@ -1,7 +1,7 @@
-import '../helpers/authentication_helper.dart';
 import '../../../../../core/helpers/intera_utils.dart';
-import '../../../../domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
+import '../../../domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
 import '../../../../../core/helpers/controller.dart';
+import 'helpers/authentication_helper.dart';
 
 class LoginController extends InteraController {
   LoginController(this._authenticateWithEmailAndPassword);
@@ -21,6 +21,8 @@ class LoginController extends InteraController {
 
     try {
       await InteraUtils.hideKeyboard();
+
+      
 
       loading = true;
 

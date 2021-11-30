@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../../domain/entities/CredentialsEntity.dart';
-import '../../../../../core/helpers/intera_utils.dart';
+import '../../../../../../core/helpers/intera_utils.dart';
 
 class AuthenticationHelper {
   final RxString _email = RxString('');

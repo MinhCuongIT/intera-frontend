@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart' as responsive;
 
 import '../../../../../core/theme/intera_font.dart';
-import '../controllers/login_controller.dart';
+import '../../controllers/login/login_controller.dart';
 import '../../../../../core/theme/intera_colors.dart';
 import '../../../../../core/components/app_bar.dart';
 import '../../../../../core/components/button.dart';
