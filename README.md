@@ -7,6 +7,7 @@
 ## :sparkling_heart: Contributing/Contribuir
 
 Quer contribuir com o projeto? [Confira o passo a passo](./CONTRIBUTING.md)
+
 Quer ver o que está por vir? [Acompanhe aqui](https://github.com/bernardoveras/intera-frontend/projects)
 
 - Curta e compartilhe o projeto :rocket:
