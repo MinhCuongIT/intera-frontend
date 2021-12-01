@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../../../core/helpers/firebase_exception_handler.dart';
+import '../../../errors/failure.dart';
 import '../authentication_datasource.dart';
 import '../../../dto/user_dto.dart';
 import '../../../../domain/entities/CredentialsEntity.dart';
@@ -28,19 +30,11 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
       await _saveDataInLocalStorage(user: user);
 
       return user;
-    } on FirebaseAuthException catch (e) {
-      String exception = 'Ocorreu um erro';
-
-      if (e.code == 'user-not-found') {
-        exception = 'Nenhum usuário encontrado com este e-mail';
-      } else if (e.code == 'wrong-password') {
-        exception = 'A senha inserida está incorreta. Tente novamente';
-      }
-
-      throw Exception(exception);
+    } on FirebaseException catch (error) {
+      throw AuthenticationFailure(message: FirebaseExceptionHandler.getMessage(error));
     } catch (e) {
-      ///ToDo: Tratar os erros do login criando erros genéricos
-      ///ToDo: Usar o Either para a tratativa de Success/Fail
+      // TODO: Tratar os erros do login criando erros genéricos
+      // TODO: Usar o Either para a tratativa de Success/Fail
       throw Exception(e);
     }
   }
@@ -70,6 +64,8 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
       } else {
         throw Exception('Não foi possível efetuar o login com o Google. Tente novamente');
       }
+    } on FirebaseException catch (error) {
+      throw AuthenticationFailure(message: FirebaseExceptionHandler.getMessage(error));
     } catch (e) {
       ///ToDo: Tratar os erros do login criando erros genéricos
       ///ToDo: Usar o Either para a tratativa de Success/Fail
