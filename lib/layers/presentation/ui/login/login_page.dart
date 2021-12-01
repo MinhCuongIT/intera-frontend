@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart' as responsive;

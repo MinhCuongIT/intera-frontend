@@ -48,12 +48,21 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
   @override
   Future<UserDto> authenticateWithGoogle() async {
     try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email', 'https://www.googleapis.com/auth/contacts.readonly']);
+      final GoogleSignIn _googleSignIn = GoogleSignIn();
 
       final GoogleSignInAccount? googleCredentials = await _googleSignIn.signIn();
 
       if (googleCredentials != null) {
-        final UserDto user = UserDto.fromGoogleUser(googleCredentials);
+        final GoogleSignInAuthentication _googleSignInAuthentication = await googleCredentials.authentication;
+
+        final AuthCredential _firebaseCredential = GoogleAuthProvider.credential(
+          accessToken: _googleSignInAuthentication.accessToken,
+          idToken: _googleSignInAuthentication.idToken,
+        );
+
+        final UserCredential credentials = await _firebaseInstance.signInWithCredential(_firebaseCredential);
+
+        final UserDto user = UserDto.fromFirebaseUser(credentials);
 
         await _saveDataInLocalStorage(user: user, authType: AuthType.Google);
 
