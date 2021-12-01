@@ -8,11 +8,12 @@ class SplashController extends InteraController {
   final AccountService _accountService;
 
   Future<void> initApp() async {
-    var user =await  _accountService.fetchLoggedUser();
+    var user = await _accountService.fetchLoggedUser();
 
-    if(user == null) router.toLogin();
-
-    router.toHome(closeAll: true);
+    if (user == null)
+      router.toLogin();
+    else
+      router.toHome(closeAll: true);
   }
 
   @override
