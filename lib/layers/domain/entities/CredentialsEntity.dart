@@ -1,3 +1,5 @@
+import '../../../core/helpers/intera_utils.dart';
+
 class CredentialsEntity {
   CredentialsEntity({
     required this.email,
@@ -8,5 +10,5 @@ class CredentialsEntity {
   final String email;
   final String password;
 
-  bool get isValid => email.isNotEmpty && password.isNotEmpty;
+  bool get isValid =>  email.isNotEmpty && InteraUtils.isValidEmail(email) && password.isNotEmpty && password.length >= 6;
 }

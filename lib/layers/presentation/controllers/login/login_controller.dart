@@ -1,4 +1,5 @@
 import 'helpers/authentication_helper.dart';
+import '../../../domain/entities/UserEntity.dart';
 import '../../../domain/usecases/authentication/authenticate_with_google_usecase.dart';
 import '../../../data/dto/user_dto.dart';
 import '../../../domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
@@ -19,7 +20,7 @@ class LoginController extends InteraController {
   set email(String value) => _authHelper.email = value;
   set password(String value) => _authHelper.password = value;
 
-  Future<UserDto?> authenticateWithEmailAndPassword() async {
+  Future<UserEntity?> authenticateWithEmailAndPassword() async {
     if (loading == true) return null;
 
     try {

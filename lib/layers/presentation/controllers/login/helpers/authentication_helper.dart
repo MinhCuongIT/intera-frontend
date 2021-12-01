@@ -12,7 +12,7 @@ class AuthenticationHelper {
   String get password => _password.value;
   set password(String value) => _password.value = value;
 
-  bool get validated => email.isNotEmpty && InteraUtils.isValidEmail(email) && password.isNotEmpty;
+  bool get validated => email.isNotEmpty && InteraUtils.isValidEmail(email) && password.isNotEmpty && password.length >= 6;
 
   CredentialsEntity toCredentialsEntity() => CredentialsEntity(email: email, password: password);
 }

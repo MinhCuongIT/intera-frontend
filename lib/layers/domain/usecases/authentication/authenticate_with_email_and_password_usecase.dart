@@ -1,6 +1,6 @@
-import '../../../data/dto/user_dto.dart';
+import '../../entities/UserEntity.dart';
 import '../../entities/CredentialsEntity.dart';
 
 abstract class AuthenticateWithEmailAndPasswordUseCase {
-  Future<UserDto> call(CredentialsEntity credentials);
+  Future<UserEntity> call(CredentialsEntity credentials);
 }
