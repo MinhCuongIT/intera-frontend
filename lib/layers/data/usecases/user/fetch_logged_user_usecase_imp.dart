@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../../core/constants/local_storage_keys.dart';
 import '../../../../core/services/local_storage/local_storage_service.dart';
 import '../../../../core/settings.dart';
@@ -13,17 +15,32 @@ class FetchLoggedUserUseCaseImp implements FetchLoggedUserUseCase {
   @override
   Future<UserEntity?> call() async {
     try {
+      var _userFirebase = FirebaseAuth.instance.currentUser;
       final String? userJson = await _localStorage.read(key: LocalStorageKeys.loggedUserInfo);
 
-      if (userJson == null) return null;
+      if (userJson == null || _userFirebase == null) return null;
 
       final UserEntity loggedUser = UserDto.fromJson(userJson).toEntity();
 
-      Settings.user = loggedUser;
-
-      return loggedUser;
+      if (_firebaseWithLocalUserIsEquals(firebaseUser: _userFirebase, userLocal: loggedUser)) {
+        Settings.user = loggedUser;
+        return loggedUser;
+      } else {
+        //TODO: Fazer o logout
+        return null;
+      }
     } catch (e) {
       throw e;
     }
+  }
+
+  bool _firebaseWithLocalUserIsEquals({required User firebaseUser, required UserEntity userLocal}) {
+    if (userLocal.email != firebaseUser.email) return false;
+    if (userLocal.id != firebaseUser.uid) return false;
+    if (userLocal.name != firebaseUser.displayName) return false;
+    if (userLocal.phoneNumber != firebaseUser.phoneNumber) return false;
+    if (userLocal.photoURL != firebaseUser.photoURL) return false;
+
+    return true;
   }
 }

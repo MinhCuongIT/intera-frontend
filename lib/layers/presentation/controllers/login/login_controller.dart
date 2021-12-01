@@ -32,7 +32,7 @@ class LoginController extends InteraController {
         return await _authenticateWithEmailAndPassword(_authHelper.toCredentialsEntity());
       }
     } catch (e) {
-      print('Tratar exceção');
+      // TODO: Tratar exceção com algum notify
       throw e;
     } finally {
       loading = false;
@@ -49,7 +49,7 @@ class LoginController extends InteraController {
 
       return await _authenticateWithGoogle();
     } catch (e) {
-      print('Tratar exceção');
+      // TODO: Tratar exceção com algum notify
       throw e;
     } finally {
       loading = false;
