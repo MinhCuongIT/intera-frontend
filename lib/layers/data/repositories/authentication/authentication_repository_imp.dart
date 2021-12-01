@@ -11,4 +11,6 @@ class AuthenticationRepositoryImp implements AuthenticationRepository {
   @override
   Future<UserDto> authenticateWithEmailAndPassword(CredentialsEntity credentials) async =>
       await _datasource.authenticateWithEmailAndPassword(credentials);
+
+  Future<UserDto> authenticateWithGoogle() async => await _datasource.authenticateWithGoogle();
 }

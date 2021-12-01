@@ -11,6 +11,7 @@ import '../../../../../core/components/button.dart';
 import '../../../../../core/components/text_form_field.dart';
 import '../../../../../core/helpers/intera_page.dart';
 import '../../../../../core/helpers/intera_utils.dart';
+import '../../../../../core/core_services.dart';
 
 class LoginPage extends InteraPage<LoginController> {
   final _formKey = GlobalKey<FormState>();
@@ -151,10 +152,27 @@ class LoginPage extends InteraPage<LoginController> {
                     delay: Duration(milliseconds: 600),
                     child: InteraButton.primary(
                       'Entrar',
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          controller.authenticate();
+                          var user = await controller.authenticateWithEmailAndPassword();
+
+                          if (user != null) router.toHome(closeAll: true);
                         }
+                      },
+                      loading: loading,
+                    ),
+                  ),
+                  SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 10 : 20),
+                  FadeInUp(
+                    from: 20,
+                    duration: Duration(milliseconds: 500),
+                    delay: Duration(milliseconds: 600),
+                    child: InteraButton.secondary(
+                      'Entrar com Google',
+                      onPressed: () async {
+                        var user = await controller.authenticateWithGoogle();
+
+                        if (user != null) router.toHome(closeAll: true);
                       },
                       loading: loading,
                     ),
