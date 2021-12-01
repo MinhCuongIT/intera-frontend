@@ -1,7 +1,7 @@
-import '../layers/data/dto/user_dto.dart';
+import '../layers/domain/entities/UserEntity.dart';
 
 class Settings {
   const Settings._();
 
-  static UserDto? user;
+  static UserEntity? user;
 }

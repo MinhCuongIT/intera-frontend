@@ -17,6 +17,7 @@ dependencies:
   firebase_crashlytics: ^2.3.0
   google_sign_in: ^5.2.1
   flutter_secure_storage: ^5.0.2
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
 

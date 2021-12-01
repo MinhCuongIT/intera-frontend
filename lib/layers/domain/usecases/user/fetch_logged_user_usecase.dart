@@ -1,5 +1,5 @@
-import '../../../data/dto/user_dto.dart';
+import '../../entities/UserEntity.dart';
 
 abstract class FetchLoggedUserUseCase{
-  Future<UserDto?> call();
+  Future<UserEntity?> call();
 }

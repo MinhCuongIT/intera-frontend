@@ -5,6 +5,6 @@ import '../../controllers/splash/splash_controller.dart';
 class SplashIoC extends Bindings {
   @override
   Future<void> dependencies() async {
-    await Get.putAsync(() async => SplashController());
+    await Get.putAsync(() async => SplashController(Get.find()));
   }
 }

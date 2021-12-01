@@ -56,7 +56,7 @@ class UserDto extends UserEntity {
 
   factory UserDto.fromJson(String json) {
     final Map<String, dynamic> map = jsonDecode(json);
-    
+
     return UserDto(
       id: map['id'],
       email: map['email'],
@@ -75,4 +75,6 @@ class UserDto extends UserEntity {
       };
 
   String toJson() => jsonEncode(toMap());
+
+  UserEntity toEntity() => UserEntity(id: id, email: email, name: name, phoneNumber: phoneNumber, photoURL: photoURL);
 }
