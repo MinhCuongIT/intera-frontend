@@ -33,7 +33,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/images/google.png
 
   fonts:
     - family: Inter

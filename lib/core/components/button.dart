@@ -14,6 +14,9 @@ class InteraButton extends StatelessWidget {
   final bool loading;
   final void Function()? onPressed;
   final void Function()? onLongPress;
+  final Widget? icon;
+  final BorderSide? borderSide;
+  final Color? clickEffectColor;
 
   const InteraButton(
     this.text, {
@@ -26,6 +29,9 @@ class InteraButton extends StatelessWidget {
     this.radius = 8,
     this.buttonStyle,
     this.loading = false,
+    this.borderSide,
+    this.icon,
+    this.clickEffectColor,
   });
 
   factory InteraButton.primary(
@@ -35,6 +41,7 @@ class InteraButton extends StatelessWidget {
     void Function()? onPressed,
     void Function()? onLongPress,
     bool loading = false,
+    Widget? icon,
   }) {
     return InteraButton(
       text,
@@ -45,6 +52,7 @@ class InteraButton extends StatelessWidget {
       backgroundColor: InteraColors.primary,
       foregroundColor: InteraColors.baseLight100,
       loading: loading,
+      icon: icon,
     );
   }
 
@@ -55,6 +63,7 @@ class InteraButton extends StatelessWidget {
     void Function()? onPressed,
     void Function()? onLongPress,
     bool loading = false,
+    Widget? icon,
   }) {
     return InteraButton(
       text,
@@ -65,6 +74,35 @@ class InteraButton extends StatelessWidget {
       backgroundColor: InteraColors.violet20,
       foregroundColor: InteraColors.primary,
       loading: loading,
+      icon: icon,
+    );
+  }
+
+  factory InteraButton.ghost(
+    String text, {
+    Size size = const Size.fromHeight(50),
+    double radius = 8,
+    void Function()? onPressed,
+    void Function()? onLongPress,
+    bool loading = false,
+    Color? foregroundColor,
+    Widget? icon,
+  }) {
+    return InteraButton(
+      text,
+      onPressed: onPressed,
+      onLongPress: onLongPress,
+      radius: radius,
+      size: size,
+      backgroundColor: Colors.transparent,
+      foregroundColor: foregroundColor ?? InteraColors.baseDark100,
+      loading: loading,
+      icon: icon,
+      clickEffectColor: Colors.black.withOpacity(0.05),
+      borderSide: BorderSide(
+        color: InteraColors.skeleton,
+        width: 1,
+      ),
     );
   }
 
@@ -72,7 +110,17 @@ class InteraButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       child: loading == false
-          ? Center(child: Text(text))
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (icon != null) ...{
+                  icon!,
+                  SizedBox(width: 10),
+                },
+                Text(text),
+              ],
+            )
           : Center(
               child: SizedBox(
                 height: 20,
@@ -98,7 +146,8 @@ class InteraButton extends StatelessWidget {
 
               return foregroundColor ?? InteraColors.baseLight100;
             }),
-            overlayColor: MaterialStateProperty.all<Color>(Colors.white.withOpacity(0.1)),
+            side: borderSide != null ? MaterialStateProperty.all<BorderSide>(borderSide!) : null,
+            overlayColor: MaterialStateProperty.all<Color>(clickEffectColor ?? Colors.white.withOpacity(0.1)),
             backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
               if (states.contains(MaterialState.disabled)) return InteraColors.baseDark10;
 

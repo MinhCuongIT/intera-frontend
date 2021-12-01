@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intera/core/components/icons/google_icon.dart';
 import 'package:responsive_framework/responsive_framework.dart' as responsive;
 
 import '../../../../../core/theme/intera_font.dart';
@@ -167,13 +168,14 @@ class LoginPage extends InteraPage<LoginController> {
                     from: 20,
                     duration: Duration(milliseconds: 500),
                     delay: Duration(milliseconds: 600),
-                    child: InteraButton.secondary(
+                    child: InteraButton.ghost(
                       'Entrar com Google',
                       onPressed: () async {
                         var user = await controller.authenticateWithGoogle();
 
                         if (user != null) router.toHome(closeAll: true);
                       },
+                      icon: GoogleIcon(size: 30),
                       loading: loading,
                     ),
                   ),
