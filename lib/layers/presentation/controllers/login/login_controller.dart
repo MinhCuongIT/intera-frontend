@@ -1,13 +1,15 @@
-import '../../../../../core/helpers/intera_utils.dart';
+import 'helpers/authentication_helper.dart';
+import '../../../data/dto/user_dto.dart';
 import '../../../domain/usecases/authentication/authenticate_with_email_and_password_usecase.dart';
 import '../../../../../core/helpers/controller.dart';
-import 'helpers/authentication_helper.dart';
+import '../../../../../core/helpers/intera_utils.dart';
 
 class LoginController extends InteraController {
   LoginController(this._authenticateWithEmailAndPassword);
 
   final AuthenticationHelper _authHelper = AuthenticationHelper();
   final AuthenticateWithEmailAndPasswordUseCase _authenticateWithEmailAndPassword;
+  // final AuthenticateWithGoogleUseCase _authenticateWithGoogle;
 
   String get email => _authHelper.email;
   String get password => _authHelper.password;
@@ -16,21 +18,38 @@ class LoginController extends InteraController {
   set email(String value) => _authHelper.email = value;
   set password(String value) => _authHelper.password = value;
 
-  Future<void> authenticate() async {
-    if (loading == true) return;
+  Future<UserDto?> authenticateWithGoogle() async {
+    if (loading == true) return null;
 
     try {
       await InteraUtils.hideKeyboard();
 
-      
+      loading = true;
+
+      // return await _authenticateWithGoogle();
+
+    } catch (e) {
+      print('Tratar exceção');
+      throw e;
+    } finally {
+      loading = false;
+    }
+  }
+
+  Future<UserDto?> authenticateWithEmailAndPassword() async {
+    if (loading == true) return null;
+
+    try {
+      await InteraUtils.hideKeyboard();
 
       loading = true;
 
       if (validated) {
-        var user = await _authenticateWithEmailAndPassword(_authHelper.toCredentialsEntity());
+        return await _authenticateWithEmailAndPassword(_authHelper.toCredentialsEntity());
       }
     } catch (e) {
       print('Tratar exceção');
+      throw e;
     } finally {
       loading = false;
     }

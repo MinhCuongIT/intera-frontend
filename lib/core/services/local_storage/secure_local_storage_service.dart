@@ -19,5 +19,9 @@ class SecureLocalStorageService extends GetxService implements LocalStorageServi
   Future<Map<String, String>> readAll() async => await _secureStorage.readAll();
 
   @override
-  Future<void> write({required String key, required String value}) async => await _secureStorage.write(key: key, value: value);
+  Future<void> write({required String key, required String value}) async {
+    print('Inserindo registro na key: $key');
+
+    return await _secureStorage.write(key: key, value: value);
+  }
 }

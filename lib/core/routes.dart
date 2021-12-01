@@ -13,14 +13,18 @@ class InteraRoutes {
 
   static List<GetPage> get routes => [
         GetPage(
+          name: SPLASH,
+          page: () => SplashPage(),
+          binding: SplashIoC(),
+        ),
+        GetPage(
           name: LOGIN,
           page: () => LoginPage(),
           binding: LoginIoC(),
         ),
         GetPage(
-          name: SPLASH,
-          page: () => SplashPage(),
-          binding: SplashIoC(),
+          name: HOME,
+          page: () => HomePage(),
         ),
       ];
 }
