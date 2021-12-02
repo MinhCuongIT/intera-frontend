@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import 'helpers/authentication_helper.dart';
 import '../../../domain/entities/UserEntity.dart';
 import '../../../domain/usecases/authentication/authenticate_with_google_usecase.dart';
@@ -20,6 +22,9 @@ class LoginController extends InteraController {
   set email(String value) => _authHelper.email = value;
   set password(String value) => _authHelper.password = value;
 
+  final RxBool _loadingWithGoogle = RxBool(false);
+  bool get loadingWithGoogle => _loadingWithGoogle.value;
+
   Future<UserEntity?> authenticateWithEmailAndPassword() async {
     if (loading == true) return null;
 
@@ -40,19 +45,19 @@ class LoginController extends InteraController {
   }
 
   Future<UserDto?> authenticateWithGoogle() async {
-    if (loading == true) return null;
+    if (loading == true || loadingWithGoogle == true) return null;
 
     try {
       await InteraUtils.hideKeyboard();
 
-      loading = true;
+      _loadingWithGoogle.value = true;
 
       return await _authenticateWithGoogle();
     } catch (e) {
       // TODO: Tratar exceção com algum notify
       throw e;
     } finally {
-      loading = false;
+      _loadingWithGoogle.value = false;
     }
   }
 }

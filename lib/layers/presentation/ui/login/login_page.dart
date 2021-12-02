@@ -44,7 +44,7 @@ class LoginPage extends InteraPage<LoginController> {
                   if (isLogged == false) ...{
                     FadeInUp(
                       from: 20,
-                      duration: Duration(milliseconds: 500),
+                      duration: Duration(milliseconds: 400),
                       child: InteraTextField(
                         hint: 'ex: intera@email.com',
                         label: 'E-mail*',
@@ -127,8 +127,8 @@ class LoginPage extends InteraPage<LoginController> {
                   SizedBox(height: 20),
                   FadeInUp(
                     from: 20,
-                    duration: Duration(milliseconds: 500),
-                    delay: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 400),
+                    delay: Duration(milliseconds: 350),
                     child: InteraTextField(
                       label: 'Senha*',
                       hint: '**********',
@@ -150,7 +150,7 @@ class LoginPage extends InteraPage<LoginController> {
                   FadeInUp(
                     from: 20,
                     duration: Duration(milliseconds: 500),
-                    delay: Duration(milliseconds: 600),
+                    delay: Duration(milliseconds: 400),
                     child: InteraButton.primary(
                       'Entrar',
                       onPressed: () async {
@@ -164,35 +164,47 @@ class LoginPage extends InteraPage<LoginController> {
                     ),
                   ),
                   SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 10 : 20),
-                  Text(
-                    'Ou então',
-                    style: TextStyle(
-                      color: InteraColors.textGray,
-                      fontWeight: InteraFont.bold,
-                      fontSize: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 12 : 14,
+                  FadeInUp(
+                    from: 20,
+                    duration: Duration(milliseconds: 500),
+                    delay: Duration(milliseconds: 450),
+                    child: Text(
+                      'Ou então',
+                      style: TextStyle(
+                        color: InteraColors.textGray,
+                        fontWeight: InteraFont.bold,
+                        fontSize: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 12 : 14,
+                      ),
                     ),
                   ),
                   SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 10 : 20),
                   FadeInUp(
                     from: 20,
                     duration: Duration(milliseconds: 500),
-                    delay: Duration(milliseconds: 600),
-                    child: InteraButton.ghost(
-                      'Entrar com Google',
-                      onPressed: () async {
-                        var user = await controller.authenticateWithGoogle();
+                    delay: Duration(milliseconds: 500),
+                    child: AnimatedOpacity(
+                      duration: Duration(milliseconds: 1000),
+                      opacity: controller.loading == true ? 0.05 : 1.0,
+                      curve: Curves.ease,
+                      child: InteraButton.ghost(
+                        'Entrar com Google',
+                        onPressed: () async {
+                          if (loading == false) {
+                            var user = await controller.authenticateWithGoogle();
 
-                        if (user != null) router.toHome(closeAll: true);
-                      },
-                      icon: GoogleIcon(size: 30),
-                      loading: loading,
+                            if (user != null) router.toHome(closeAll: true);
+                          }
+                        },
+                        icon: GoogleIcon(size: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 20 : 30),
+                        loading: controller.loadingWithGoogle,
+                      ),
                     ),
                   ),
                   SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 15 : 25),
                   FadeInUp(
                     from: 20,
                     duration: Duration(milliseconds: 500),
-                    delay: Duration(milliseconds: 600),
+                    delay: Duration(milliseconds: 550),
                     child: InteraButton.ghost(
                       'Esqueceu a senha?',
                       foregroundColor: InteraColors.primary,
