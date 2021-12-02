@@ -16,6 +16,7 @@ class FetchLoggedUserUseCaseImp implements FetchLoggedUserUseCase {
   Future<UserEntity?> call() async {
     try {
       var _userFirebase = FirebaseAuth.instance.currentUser;
+      
       final String? userJson = await _localStorage.read(key: LocalStorageKeys.loggedUserInfo);
 
       if (userJson == null || _userFirebase == null) return null;

@@ -1,4 +1,5 @@
 import 'package:faker/faker.dart';
+import 'package:intera/core/enums/auth_type.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
@@ -31,6 +32,7 @@ main() {
     name: faker.person.name(),
     phoneNumber: faker.phoneNumber.us(),
     photoURL: faker.internet.httpUrl(),
+    authType: AuthType.EmailAndPassword,
   );
 
   test('Should throws Exception where invalid credentials', () async {

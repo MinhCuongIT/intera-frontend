@@ -1,18 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intera/core/components/icons/google_icon.dart';
 import 'package:responsive_framework/responsive_framework.dart' as responsive;
 
-import '../../../../../core/theme/intera_font.dart';
 import '../../controllers/login/login_controller.dart';
-import '../../../../../core/theme/intera_colors.dart';
-import '../../../../../core/components/app_bar.dart';
-import '../../../../../core/components/button.dart';
-import '../../../../../core/components/text_form_field.dart';
-import '../../../../../core/helpers/intera_page.dart';
-import '../../../../../core/helpers/intera_utils.dart';
-import '../../../../../core/core_services.dart';
+import '../../../../core/theme/intera_font.dart';
+import '../../../../core/components/icons/google_icon.dart';
+import '../../../../core/theme/intera_colors.dart';
+import '../../../../core/components/app_bar.dart';
+import '../../../../core/components/button.dart';
+import '../../../../core/components/text_form_field.dart';
+import '../../../../core/helpers/intera_page.dart';
+import '../../../../core/helpers/intera_utils.dart';
+import '../../../../core/core_services.dart';
 
 class LoginPage extends InteraPage<LoginController> {
   final _formKey = GlobalKey<FormState>();

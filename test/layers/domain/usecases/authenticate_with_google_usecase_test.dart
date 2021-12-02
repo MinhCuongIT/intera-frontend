@@ -1,4 +1,5 @@
 import 'package:faker/faker.dart';
+import 'package:intera/core/enums/auth_type.dart';
 import 'package:intera/layers/domain/usecases/authentication/authenticate_with_google_usecase_imp.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
@@ -28,6 +29,7 @@ main() {
     name: faker.person.name(),
     phoneNumber: faker.phoneNumber.us(),
     photoURL: faker.internet.httpUrl(),
+    authType: AuthType.Google,
   );
 
   test('Should return UserDto where valid credentials', () async {

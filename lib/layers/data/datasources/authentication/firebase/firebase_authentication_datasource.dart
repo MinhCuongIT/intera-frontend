@@ -25,7 +25,7 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
         password: credentials.password,
       );
 
-      final UserDto user = UserDto.fromFirebaseUser(_firebaseCredentials);
+      final UserDto user = UserDto.fromFirebaseUser(_firebaseCredentials, authType: AuthType.EmailAndPassword);
 
       await _saveDataInLocalStorage(user: user);
 
@@ -56,7 +56,7 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
 
         final UserCredential credentials = await _firebaseInstance.signInWithCredential(_firebaseCredential);
 
-        final UserDto user = UserDto.fromFirebaseUser(credentials);
+        final UserDto user = UserDto.fromFirebaseUser(credentials, authType: AuthType.Google);
 
         await _saveDataInLocalStorage(user: user, authType: AuthType.Google);
 
@@ -75,10 +75,7 @@ class FirebaseAuthenticationDatasource implements AuthenticationDatasource {
 
   Future<void> _saveDataInLocalStorage({UserDto? user, AuthType authType = AuthType.EmailAndPassword}) async {
     try {
-      final List<Future> futures = [
-        _localStorageService.write(key: LocalStorageKeys.lastLoginType, value: authType.toIndex.toString()),
-        _localStorageService.write(key: LocalStorageKeys.lastLoginDate, value: DateTime.now().toString()),
-      ];
+      final List<Future> futures = [_localStorageService.write(key: LocalStorageKeys.lastLoginDate, value: DateTime.now().toString())];
 
       if (user != null) {
         Settings.user = user;

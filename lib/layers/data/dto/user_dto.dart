@@ -1,12 +1,13 @@
 import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
+import '../../../core/enums/auth_type.dart';
 import '../../domain/entities/UserEntity.dart';
 
 class UserDto extends UserEntity {
   UserDto({
     required this.id,
+    required this.authType,
     this.email,
     this.name,
     this.phoneNumber,
@@ -17,6 +18,7 @@ class UserDto extends UserEntity {
           name: name,
           phoneNumber: phoneNumber,
           photoURL: photoURL,
+          authType: authType,
         );
 
   final String id;
@@ -24,8 +26,9 @@ class UserDto extends UserEntity {
   final String? name;
   final String? phoneNumber;
   final String? photoURL;
+  final AuthType authType;
 
-  factory UserDto.fromFirebaseUser(UserCredential credentials) {
+  factory UserDto.fromFirebaseUser(UserCredential credentials, {required AuthType authType}) {
     if (credentials.user == null) throw Exception('User not fount');
 
     return UserDto(
@@ -34,15 +37,7 @@ class UserDto extends UserEntity {
       name: credentials.user!.displayName,
       phoneNumber: credentials.user!.phoneNumber,
       photoURL: credentials.user!.photoURL,
-    );
-  }
-
-  factory UserDto.fromGoogleUser(GoogleSignInAccount credentials) {
-    return UserDto(
-      id: credentials.id,
-      email: credentials.email,
-      name: credentials.displayName,
-      photoURL: credentials.photoUrl,
+      authType: authType,
     );
   }
 
@@ -52,19 +47,10 @@ class UserDto extends UserEntity {
         name: map['name'],
         phoneNumber: map['phone_number'],
         photoURL: map['photo_url'],
+        authType: (map['auth_type'] as int).convertToAuthType,
       );
 
-  factory UserDto.fromJson(String json) {
-    final Map<String, dynamic> map = jsonDecode(json);
-
-    return UserDto(
-      id: map['id'],
-      email: map['email'],
-      name: map['name'],
-      phoneNumber: map['phone_number'],
-      photoURL: map['photo_url'],
-    );
-  }
+  factory UserDto.fromJson(String json) => UserDto.fromMap(jsonDecode(json));
 
   Map<String, dynamic> toMap() => {
         "id": id,
@@ -72,9 +58,17 @@ class UserDto extends UserEntity {
         "name": name,
         "phone_number": phoneNumber,
         "photo_url": photoURL,
+        "auth_type": authType.toIndex,
       };
 
   String toJson() => jsonEncode(toMap());
 
-  UserEntity toEntity() => UserEntity(id: id, email: email, name: name, phoneNumber: phoneNumber, photoURL: photoURL);
+  UserEntity toEntity() => UserEntity(
+        id: id,
+        email: email,
+        name: name,
+        phoneNumber: phoneNumber,
+        photoURL: photoURL,
+        authType: authType,
+      );
 }
