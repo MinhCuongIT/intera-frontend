@@ -11,6 +11,8 @@ import 'services/local_storage/local_storage_service.dart';
 import 'services/local_storage/secure_local_storage_service.dart';
 import 'services/router/router.dart';
 import 'services/router/getx_router.dart';
+import '../layers/data/usecases/user/logout_usecase_imp.dart';
+import '../layers/domain/usecases/user/logout_usecase.dart';
 import '../layers/data/usecases/user/fetch_logged_user_usecase_imp.dart';
 
 class Initializer {
@@ -24,7 +26,7 @@ class Initializer {
 
       FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
-      insertGlobalServices();
+      await insertGlobalServices();
     } catch (e) {
       print(e);
       rethrow;
@@ -33,10 +35,13 @@ class Initializer {
 
   static Future<void> insertAccount() async {}
 
-  static void insertGlobalServices() {
-    Get.lazyPut<InteraRouter>(() => GetXInteraRouter());
-    Get.lazyPut<LocalStorageService>(() => SecureLocalStorageService());
+  static Future<void> insertGlobalServices() async {
+    final LocalStorageService localStorageServiceDependency = SecureLocalStorageService();
 
-    Get.lazyPut<AccountService>(() => AccountServiceImp(FetchLoggedUserUseCaseImp(Get.find())));
+    Get.lazyPut<InteraRouter>(() => GetXInteraRouter());
+    Get.lazyPut<LocalStorageService>(() => localStorageServiceDependency);
+    await Get.putAsync<LogoutUseCase>(() async => LogoutUseCaseImp(localStorageServiceDependency));
+
+    Get.lazyPut<AccountService>(() => AccountServiceImp(FetchLoggedUserUseCaseImp(localStorageServiceDependency), Get.find()));
   }
 }

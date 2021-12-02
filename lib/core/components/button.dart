@@ -87,6 +87,8 @@ class InteraButton extends StatelessWidget {
     bool loading = false,
     Color? foregroundColor,
     Widget? icon,
+    BorderSide? borderSide,
+    Color? clickEffectColor,
   }) {
     return InteraButton(
       text,
@@ -98,8 +100,8 @@ class InteraButton extends StatelessWidget {
       foregroundColor: foregroundColor ?? InteraColors.baseDark100,
       loading: loading,
       icon: icon,
-      clickEffectColor: Colors.black.withOpacity(0.05),
-      borderSide: BorderSide(
+      clickEffectColor: clickEffectColor ?? Colors.black.withOpacity(0.05),
+      borderSide: borderSide ?? BorderSide(
         color: InteraColors.skeleton,
         width: 1,
       ),

@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../../../core/core_services.dart';
 import '../../../../core/services/account/account_service.dart';
 import '../../../../core/helpers/controller.dart';

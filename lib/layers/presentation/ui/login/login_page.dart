@@ -164,6 +164,15 @@ class LoginPage extends InteraPage<LoginController> {
                     ),
                   ),
                   SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 10 : 20),
+                  Text(
+                    'Ou então',
+                    style: TextStyle(
+                      color: InteraColors.textGray,
+                      fontWeight: InteraFont.bold,
+                      fontSize: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 12 : 14,
+                    ),
+                  ),
+                  SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 10 : 20),
                   FadeInUp(
                     from: 20,
                     duration: Duration(milliseconds: 500),
@@ -179,15 +188,16 @@ class LoginPage extends InteraPage<LoginController> {
                       loading: loading,
                     ),
                   ),
-                  SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 20 : 40),
+                  SizedBox(height: responsive.ResponsiveWrapper.of(context).isSmallerThan(responsive.MOBILE) ? 15 : 25),
                   FadeInUp(
                     from: 20,
                     duration: Duration(milliseconds: 500),
                     delay: Duration(milliseconds: 600),
-                    child: InteraButton(
+                    child: InteraButton.ghost(
                       'Esqueceu a senha?',
-                      backgroundColor: Colors.transparent,
                       foregroundColor: InteraColors.primary,
+                      borderSide: BorderSide.none,
+                      clickEffectColor: Colors.transparent,
                       onPressed: () {},
                     ),
                   ),
